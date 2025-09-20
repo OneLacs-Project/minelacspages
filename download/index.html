@@ -166,7 +166,11 @@
                 </a>
             </div>
         </div>
-        
+
+        <div class="warning-box" style="background-color: rgba(231, 76, 60, 0.1); border: 1px solid rgba(231, 76, 60, 0.3); color: var(--recommend-color); padding: 15px 20px; border-radius: 8px; font-size: 0.95rem; margin-bottom: 30px; text-align: center;">
+            <i class="fas fa-triangle-exclamation" style="margin-right: 8px;"></i>
+            Не обновляйте моды сборки! <br> Может привести к вылетам, несовместимостью с сервером и между модами!
+        </div>
         <div class="instructions-section">
             <button class="instructions-toggle" id="instructions-btn">
                 <i class="fas fa-chevron-down icon"></i><span>Показать инструкцию</span>
@@ -180,7 +184,7 @@
                 </ul>
                 <h4 class="animated-step"><i class="fas fa-file-zipper zip-icon"></i>Установка .ZIP</h4>
                 <ul class="animated-step">
-                    <li>Установите <a href="https://fabricmc.net/use/installer/" target=_blank>загрузчик Fabric</a> для 1.21.4.</li>
+                    <li>Установите <a href="https://files.minecraftforge.net/net/minecraftforge/forge/index_1.20.1.html" target=_blank>загрузчик Forge</a> для 1.20.1.</li>
                     <li>Нажмите <span class="highlight-key">Win + R</span>, введите <code class="highlight-key">%appdata%\.minecraft</code><button id="copy-path-btn" title="Копировать путь"><i class="fas fa-copy"></i></button></li>
                     <li>Перенесите содержимое архива в папку <code>.minecraft</code>, подтвердив замену.</li>
                     <li>В лаунчере выберите профиль Fabric и запускайте.</li>
@@ -204,8 +208,7 @@
         <img src="images/download.png" alt="MineLacs Logo">
         <span>MineLacs © 2025</span>
     </div>
-    
-    <button id="version-changelog-btn">
+<!-- <button id="version-changelog-btn">
         <span>Версия: 1.0</span>
         <i class="fas fa-book-open"></i>
     </button>
@@ -218,7 +221,7 @@
                 <h4>🎉 Первоначальный релиз</h4><ul><li>СКОРО...</li></ul>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
