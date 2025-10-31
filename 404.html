@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Страница не найдена</title>
+    <meta name="description" content="Страница не найдена. Вернитесь на главную страницу MineLacs.">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <!-- 
+        Этот маленький скрипт нужен, чтобы тема применялась мгновенно,
+        до загрузки остальной страницы, и не было "моргания" неверной темой.
+     -->
+    <script>
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    </script>
+</head>
+<body>
+
+    <div class="error-page-container">
+        <!-- Анимированный фон, как на главной -->
+        <div class="blurry-background-container">
+            <div class="blurry-blob blob1"></div>
+            <div class="blurry-blob blob2"></div>
+        </div>
+
+        <div class="error-content">
+            <h1 class="error-title">404</h1>
+            <p class="error-subtitle">Кажется, эту страницу съел крипер!</p>
+            <p class="error-text">Не волнуйтесь, мы поможем вам вернуться в безопасное место.</p>
+            <a href="/" class="btn btn-primary">Вернуться на главную</a>
+        </div>
+    </div>
+
+</body>
+</html>

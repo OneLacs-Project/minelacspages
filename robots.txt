@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Запрещаем индексацию служебных файлов
+Disallow: /config.js
+Disallow: /*.min.js$
+Disallow: /*.min.css$
+
+# Карта сайта
+Sitemap: https://minelacs.fun/sitemap.xml
