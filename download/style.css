@@ -541,6 +541,10 @@ main {
     margin: 0 auto;
 }
 
+.download-card-wrapper {
+    position: relative;
+}
+
 .download-card {
     background: var(--surface-color);
     border: 1px solid var(--border-color);
@@ -622,6 +626,31 @@ main {
     font-size: 0.9rem;
     color: var(--text-secondary-color);
     font-weight: 600;
+}
+
+.mirror-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 32px;
+    height: 32px;
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary-color);
+    transition: all 0.3s ease;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.mirror-badge:hover {
+    background: var(--orange-500);
+    border-color: var(--orange-500);
+    color: white;
+    transform: scale(1.1);
 }
 
 .warning-box {

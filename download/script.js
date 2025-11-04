@@ -23,12 +23,28 @@ document.addEventListener('DOMContentLoaded', () => {
         // Ссылки на скачивание
         const downloadZip = document.getElementById('download-zip');
         const downloadMrpack = document.getElementById('download-mrpack');
+        const mirrorZip = document.getElementById('mirror-zip');
+        const mirrorMrpack = document.getElementById('mirror-mrpack');
         
         if (downloadZip && CONFIG.downloads.modpack.zip) {
             downloadZip.href = CONFIG.downloads.modpack.zip;
         }
         if (downloadMrpack && CONFIG.downloads.modpack.mrpack) {
             downloadMrpack.href = CONFIG.downloads.modpack.mrpack;
+        }
+        if (mirrorZip && CONFIG.downloads.mirrors.zip) {
+            mirrorZip.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                window.location.href = CONFIG.downloads.mirrors.zip;
+            });
+        }
+        if (mirrorMrpack && CONFIG.downloads.mirrors.mrpack) {
+            mirrorMrpack.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                window.location.href = CONFIG.downloads.mirrors.mrpack;
+            });
         }
         
         // Размеры файлов

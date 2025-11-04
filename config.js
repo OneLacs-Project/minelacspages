@@ -7,6 +7,10 @@ const CONFIG = {
         modpack: {
             zip: 'https://github.com/OneLacs-Project/minelacspages/releases/download/MineLacsCreatev3/sborka3-EMOTE.zip',
             mrpack: 'https://github.com/OneLacs-Project/minelacspages/releases/download/MineLacsCreatev3/MineLacsCreate.3.0-EMOTE.mrpack'
+        },
+        mirrors: {
+            zip: 'https://drive.google.com/uc?export=download&id=1cm5nUOnhbRzLKW0uinw1Dp13514N8ngA',
+            mrpack: 'https://drive.google.com/uc?export=download&id=1_BazilNz-fKQ9M-haJlz80ukJsmYkK7t'
         }
     },
     
