@@ -1324,6 +1324,63 @@ html[data-theme='light'] .ip-badge {
     .main-nav {
         display: none;
     }
+    
+    /* Mobile Menu Styles */
+    .main-nav.active {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 80px; /* Below the header */
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background-color: var(--bg-color);
+        padding: 2rem 1.5rem;
+        z-index: 1000;
+        overflow-y: auto;
+        transform: none; /* Reset desktop transform */
+        animation: menuFadeIn 0.3s ease forwards;
+        border-top: 1px solid var(--border-color);
+    }
+
+    @keyframes menuFadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .main-nav.active .nav-links-wrapper {
+        background: transparent;
+        backdrop-filter: none;
+        border: none;
+        width: 100%;
+    }
+
+    .main-nav.active ul {
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem;
+    }
+
+    .main-nav.active ul li {
+        width: 100%;
+    }
+
+    .main-nav.active ul li a {
+        width: 100%;
+        justify-content: center;
+        padding: 1rem;
+        background-color: var(--surface-color);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        font-size: 1.1rem;
+    }
+
+    .main-nav.active ul li a.active {
+        background: linear-gradient(135deg, var(--orange-500), var(--yellow-400));
+        color: white;
+        border-color: transparent;
+    }
+
     .mobile-menu-toggle {
         display: block;
     }

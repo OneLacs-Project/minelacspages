@@ -105,15 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --------------- 7.5. Копирование IP в hero ---------------
-    const heroCopyBtn = document.getElementById('hero-copy-ip');
-    if (heroCopyBtn) {
-        heroCopyBtn.addEventListener('click', () => {
-            navigator.clipboard.writeText('go.minelacs.fun').then(() => {
-                MineLacsCommon.showNotification('IP скопирован!');
-            });
-        });
-    }
+
 
     // --------------- 8. Логика пасхалки "2048" ---------------
     const footerLogo = document.querySelector('.footer-logo-img');
