@@ -5,12 +5,12 @@ const CONFIG = {
         onelauncher: 'https://wiki.minelacs.fun',
         onelauncherAvailable: false,
         modpack: {
-            zip: 'https://github.com/OneLacs-Project/minelacspages/releases/download/MineLacsCreatev3/sborka3-EMOTE.zip',
-            mrpack: 'https://github.com/OneLacs-Project/minelacspages/releases/download/MineLacsCreatev3/MineLacsCreate.3.0-EMOTE.mrpack'
+            zip: 'https://github.com/OneLacs-Project/minelacspages/releases/download/MineLacsCreateR1/MineLacs.Create+.zip',
+            mrpack: 'https://github.com/OneLacs-Project/minelacspages/releases/download/MineLacsCreateR1/MineLacs.Create+.mrpack'
         },
         mirrors: {
-            zip: 'https://drive.google.com/uc?export=download&id=1cm5nUOnhbRzLKW0uinw1Dp13514N8ngA',
-            mrpack: 'https://drive.google.com/uc?export=download&id=1_BazilNz-fKQ9M-haJlz80ukJsmYkK7t'
+            zip: 'https://drive.google.com/file/d/1ZfQEZsaEVTngBTBPzPE_mOuJKgFCaLly/view?usp=sharing',
+            mrpack: 'https://drive.google.com/file/d/1QK5IYydT1jZ_kh7QBw6LdmPjWN-eBiZ5/view?usp=sharing'
         }
     },
 
@@ -46,8 +46,8 @@ const CONFIG = {
 
     // Размеры файлов
     fileSize: {
-        zip: '330 МБ',
-        mrpack: '51.5 МБ'
+        zip: '320 МБ',
+        mrpack: '51.9 МБ'
     },
 
     // Команда разработчиков
