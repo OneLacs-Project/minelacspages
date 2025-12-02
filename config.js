@@ -5,12 +5,12 @@ const CONFIG = {
         onelauncher: 'https://wiki.minelacs.fun',
         onelauncherAvailable: false,
         modpack: {
-            zip: 'https://github.com/OneLacs-Project/minelacspages/releases/download/MineLacsCreateR1/MineLacs.Create+.zip',
-            mrpack: 'https://github.com/OneLacs-Project/minelacspages/releases/download/MineLacsCreateR1/MineLacs.Create+.mrpack'
+            zip: 'https://github.com/OneLacs-Project/minelacspages/releases/download/MineLacsCreatev101/MineLacs.Create+.zip',
+            mrpack: 'https://github.com/OneLacs-Project/minelacspages/releases/download/MineLacsCreatev101/MineLacs.Create+.mrpack'
         },
         mirrors: {
-            zip: 'https://drive.google.com/file/d/1ZfQEZsaEVTngBTBPzPE_mOuJKgFCaLly/view?usp=sharing',
-            mrpack: 'https://drive.google.com/file/d/1QK5IYydT1jZ_kh7QBw6LdmPjWN-eBiZ5/view?usp=sharing'
+            zip: 'https://t.me/minelacs/592',
+            mrpack: 'https://t.me/minelacs/592'
         }
     },
 
@@ -46,8 +46,8 @@ const CONFIG = {
 
     // Размеры файлов
     fileSize: {
-        zip: '320 МБ',
-        mrpack: '51.9 МБ'
+        zip: '329 МБ',
+        mrpack: '52.4 МБ'
     },
 
     // Команда разработчиков
