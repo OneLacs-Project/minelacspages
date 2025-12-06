@@ -2,8 +2,8 @@
 const CONFIG = {
     // Ссылки на скачивание
     downloads: {
-        onelauncher: 'https://wiki.minelacs.fun',
-        onelauncherAvailable: false,
+        onelauncher: 'https://github.com/OneLacs-Project/minelacs-launcher/releases/download/v1.3.1/OneLauncher-Setup-1.3.1.exe',
+        onelauncherAvailable: true,
         modpack: {
             zip: 'https://github.com/OneLacs-Project/minelacspages/releases/download/MineLacsCreatev101/MineLacs.Create+.zip',
             mrpack: 'https://github.com/OneLacs-Project/minelacspages/releases/download/MineLacsCreatev101/MineLacs.Create+.mrpack'
