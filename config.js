@@ -3,14 +3,14 @@ const CONFIG = {
     // Ссылки на скачивание
     downloads: {
         onelauncher: 'https://github.com/OneLacs-Project/minelacs-launcher/releases/download/v1.3.1/OneLauncher-Setup-1.3.1.exe',
-        onelauncherAvailable: true,
+        onelauncherAvailable: false,
         modpack: {
-            zip: 'https://github.com/OneLacs-Project/minelacspages/releases/download/MineLacsCreatev101/MineLacs.Create+.zip',
-            mrpack: 'https://github.com/OneLacs-Project/minelacspages/releases/download/MineLacsCreatev101/MineLacs.Create+.mrpack'
+            zip: 'https://drive.google.com/uc?export=download&id=1jbwApklXZVTsTms4fsP-S77EN6ODrCqg',
+            mrpack: 'https://drive.google.com/uc?export=download&id=1Hyff1lddCvjZ6Qza6HUwf_XlE3F3jJ2y'
         },
         mirrors: {
-            zip: 'https://t.me/minelacs/592',
-            mrpack: 'https://t.me/minelacs/592'
+            zip: 'https://t.me/minelacs/628',
+            mrpack: 'https://t.me/minelacs/628'
         }
     },
 
@@ -33,21 +33,21 @@ const CONFIG = {
     // Версии
     version: {
         minecraft: '1.20.1',
-        modpack: '3.0',
+        modpack: '1.0',
         onelauncher: '1.0.0'
     },
 
     // Информация о текущем сезоне
     season: {
-        name: 'MineLacs Create+',
-        description: 'Сезон по моду Create',
+        name: 'MineLacs Legends',
+        description: 'Эра магии и приключений',
         logo: 'images/title.png'
     },
 
     // Размеры файлов
     fileSize: {
-        zip: '329 МБ',
-        mrpack: '52.4 МБ'
+        zip: '532,8 МБ',
+        mrpack: '35,2 МБ'
     },
 
     // Команда разработчиков
