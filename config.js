@@ -5,12 +5,12 @@ const CONFIG = {
         onelauncher: 'https://github.com/OneLacs-Project/minelacs-launcher/releases/download/v1.3.1/OneLauncher-Setup-1.3.1.exe',
         onelauncherAvailable: false,
         modpack: {
-            zip: 'https://drive.google.com/uc?export=download&id=1jbwApklXZVTsTms4fsP-S77EN6ODrCqg',
-            mrpack: 'https://drive.google.com/uc?export=download&id=1Hyff1lddCvjZ6Qza6HUwf_XlE3F3jJ2y'
+            zip: 'https://github.com/OneLacs-Project/minelacspages/releases/download/MineLacsLegends2/MineLacs.Legends.zip',
+            mrpack: 'https://github.com/OneLacs-Project/minelacspages/releases/download/MineLacsLegends2/MineLacs.Legends.mrpack'
         },
         mirrors: {
-            zip: 'https://t.me/minelacs/628',
-            mrpack: 'https://t.me/minelacs/628'
+            zip: 'https://t.me/minelacs/633',
+            mrpack: 'https://t.me/minelacs/633'
         }
     },
 
@@ -46,8 +46,8 @@ const CONFIG = {
 
     // Размеры файлов
     fileSize: {
-        zip: '532,8 МБ',
-        mrpack: '35,2 МБ'
+        zip: '586 МБ',
+        mrpack: '86.4 МБ'
     },
 
     // Команда разработчиков
