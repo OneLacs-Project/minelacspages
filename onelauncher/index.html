@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OneLauncher — MineLacs</title>
+    <meta name="description" content="OneLauncher — специальный лаунчер MineLacs с автообновлением сборки, встроенной Java и быстрой установкой. Скачай для Windows или Linux.">
+    <meta property="og:title" content="OneLauncher — MineLacs">
+    <meta property="og:description" content="Специальный лаунчер MineLacs с автообновлением сборки и встроенной Java.">
+    <meta property="og:image" content="../images/logo.png">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#FF8C00">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://api.github.com;">
+    <link rel="canonical" href="https://minelacs.fun/onelauncher/">
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="launcher.css">
+</head>
+<body>
+
+    <div class="preloader" id="preloader">
+        <img src="../images/logo.png" alt="" class="preloader__logo" width="64" height="48">
+    </div>
+
+    <noscript>
+        <div class="noscript-banner">
+            <div>
+                <p class="noscript-banner__title">JavaScript отключён</p>
+                <p class="noscript-banner__text">Для работы сайта MineLacs необходим JavaScript.</p>
+            </div>
+        </div>
+    </noscript>
+
+    <!-- ==================== HEADER ==================== -->
+    <header class="header header--scrolled" id="header">
+        <div class="header__container">
+            <a href="/" class="header__logo" id="headerLogo" style="opacity:1;transform:scale(1);pointer-events:auto;">
+                <img src="../images/logo.png" alt="MineLacs" width="44" height="32">
+            </a>
+            <nav class="header__nav" id="headerNav">
+                <a href="/" class="nav__item nav__link">Главная</a>
+                <a href="/onelauncher" class="nav__item nav__link" style="color: var(--accent-orange);">Лаунчер</a>
+                <a href="/download" class="nav__item nav__link">Сборка</a>
+            </nav>
+            <div class="header__actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
+                    <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+                    <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"/>
+                        <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                        <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                    </svg>
+                </button>
+                <button class="burger-menu" id="burgerMenu" aria-label="Меню">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== MOBILE MENU ==================== -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu__overlay" id="mobileOverlay"></div>
+        <div class="mobile-menu__panel">
+            <nav class="mobile-menu__nav">
+                <a href="/" class="mobile-menu__link">Главная</a>
+                <a href="/onelauncher" class="mobile-menu__link">Лаунчер</a>
+                <a href="/download" class="mobile-menu__link">Сборка</a>
+            </nav>
+        </div>
+    </div>
+
+    <main>
+        <section class="launcher-section">
+            <div class="container">
+
+                <!-- Hero -->
+                <div class="launcher-hero reveal">
+                    <img src="../images/2/onelauncher.png" alt="OneLauncher" class="launcher-hero__logo" width="120" height="120">
+                    <h1 class="launcher-hero__title">OneLauncher</h1>
+                    <p class="launcher-hero__subtitle">Специальный лаунчер MineLacs для игры на сервере с автоматическим обновлением сборки</p>
+                </div>
+
+                <!-- Download Card (moved up) -->
+                <div class="launcher-download reveal" id="launcherDownload">
+                    <h2 class="launcher-download__title">Скачать OneLauncher</h2>
+
+                    <div class="launcher-download__loading" id="launcherLoading">
+                        <div class="spinner"></div>
+                        <p>Загрузка...</p>
+                    </div>
+
+                    <div class="launcher-download__error" id="launcherError" style="display:none;">
+                        <p>Не удалось загрузить данные.</p>
+                        <button class="launcher-retry" id="launcherRetry">Повторить</button>
+                    </div>
+
+                    <div class="launcher-download__content" id="launcherContent" style="display:none;">
+                        <div class="launcher-download__version" id="launcherVersion"></div>
+                        <div class="launcher-download__buttons" id="launcherButtons"></div>
+                    </div>
+                </div>
+
+                <!-- Features (bento-grid from main site) -->
+                <div class="bento-grid launcher-bento">
+                    <div class="bento-item reveal">
+                        <div class="bento-item__icon">
+                            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                                <polyline points="17 6 23 6 23 12"/>
+                            </svg>
+                        </div>
+                        <h3 class="bento-item__title">Автообновление</h3>
+                        <p class="bento-item__desc">Лаунчер и сборка обновляются автоматически — всегда актуальная версия.</p>
+                    </div>
+                    <div class="bento-item reveal">
+                        <div class="bento-item__icon">
+                            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M2 20h20"/>
+                                <path d="M5 20V8.2c0-1.12 0-1.68.218-2.108a2 2 0 0 1 .874-.874C6.52 5 7.08 5 8.2 5h7.6c1.12 0 1.68 0 2.108.218a2 2 0 0 1 .874.874C19 6.52 19 7.08 19 8.2V20"/>
+                                <path d="M9 9h6"/><path d="M9 13h6"/>
+                            </svg>
+                        </div>
+                        <h3 class="bento-item__title">Встроенная Java</h3>
+                        <p class="bento-item__desc">Не нужно устанавливать Java отдельно — всё уже внутри.</p>
+                    </div>
+                    <div class="bento-item reveal">
+                        <div class="bento-item__icon">
+                            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                            </svg>
+                        </div>
+                        <h3 class="bento-item__title">Быстрая установка</h3>
+                        <p class="bento-item__desc">Скачал, запустил — играешь. Без лишних настроек.</p>
+                    </div>
+                    <div class="bento-item reveal">
+                        <div class="bento-item__icon">
+                            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/>
+                            </svg>
+                        </div>
+                        <h3 class="bento-item__title">Статистика</h3>
+                        <p class="bento-item__desc">Отслеживай своё время в игре и другие показатели.</p>
+                    </div>
+                </div>
+
+                <!-- System requirements -->
+                <div class="launcher-req reveal">
+                    <h3 class="launcher-req__title">Системные требования</h3>
+                    <div class="launcher-req__grid">
+                        <div class="launcher-req__item">
+                            <span class="launcher-req__label">ОС</span>
+                            <span class="launcher-req__value">Windows 10/11 или Linux</span>
+                        </div>
+                        <div class="launcher-req__item">
+                            <span class="launcher-req__label">ОЗУ</span>
+                            <span class="launcher-req__value">Минимум 4 ГБ</span>
+                        </div>
+                        <div class="launcher-req__item">
+                            <span class="launcher-req__label">Java</span>
+                            <span class="launcher-req__value">Встроена в лаунчер</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__top">
+                <img src="../images/logo.png" alt="MineLacs" class="footer__logo" width="48" loading="lazy">
+                <p class="footer__brand">MineLacs, 2023–<span id="currentYear"></span></p>
+            </div>
+            <p class="footer__copyright">© Все права защищены.</p>
+            <p class="footer__disclaimer">Not an official Minecraft product. We are in no way affiliated with or endorsed by Mojang Synergies AB, Microsoft Corporation or other rightsholders.</p>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Наверх">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 11 12 6 7 11"/><line x1="12" y1="6" x2="12" y2="18"/></svg>
+    </button>
+
+    <script src="../js/common.js"></script>
+    <script src="launcher.js"></script>
+</body>
+</html>

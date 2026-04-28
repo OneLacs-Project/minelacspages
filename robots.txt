@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://minelacs.fun/sitemap.xml

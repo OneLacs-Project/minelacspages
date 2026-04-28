@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Скачать сборку — MineLacs</title>
+    <meta name="description" content="Скачайте актуальную сборку модов MineLacs для Minecraft. Доступна в форматах .zip и .mrpack.">
+    <meta property="og:title" content="Скачать сборку — MineLacs">
+    <meta property="og:description" content="Актуальная сборка модов MineLacs для Minecraft.">
+    <meta property="og:image" content="../images/logo.png">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#FF8C00">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' https://minotar.net https://mc-heads.net data: blob:; connect-src 'self' https://api.github.com;">
+    <link rel="canonical" href="https://minelacs.fun/download/">
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="download.css">
+</head>
+<body>
+
+    <div class="preloader" id="preloader">
+        <img src="../images/logo.png" alt="" class="preloader__logo" width="64" height="48">
+    </div>
+
+    <noscript>
+        <div class="noscript-banner">
+            <div>
+                <p class="noscript-banner__title">JavaScript отключён</p>
+                <p class="noscript-banner__text">Для работы сайта MineLacs необходим JavaScript.</p>
+            </div>
+        </div>
+    </noscript>
+
+    <!-- ==================== HEADER ==================== -->
+    <header class="header header--scrolled" id="header">
+        <div class="header__container">
+            <a href="/" class="header__logo" id="headerLogo" style="opacity:1;transform:scale(1);pointer-events:auto;">
+                <img src="../images/logo.png" alt="MineLacs" width="44" height="32">
+            </a>
+            <nav class="header__nav" id="headerNav">
+                <a href="/" class="nav__item nav__link">Главная</a>
+                <a href="/onelauncher" class="nav__item nav__link">Лаунчер</a>
+                <a href="/download" class="nav__item nav__link" style="color: var(--accent-orange);">Сборка</a>
+            </nav>
+            <div class="header__actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
+                    <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+                    <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"/>
+                        <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                        <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                    </svg>
+                </button>
+                <button class="burger-menu" id="burgerMenu" aria-label="Меню">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== MOBILE MENU ==================== -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu__overlay" id="mobileOverlay"></div>
+        <div class="mobile-menu__panel">
+            <nav class="mobile-menu__nav">
+                <a href="/" class="mobile-menu__link">Главная</a>
+                <a href="/onelauncher" class="mobile-menu__link">Лаунчер</a>
+                <a href="/download" class="mobile-menu__link">Сборка</a>
+            </nav>
+        </div>
+    </div>
+
+    <main>
+        <!-- ==================== DOWNLOAD SECTION ==================== -->
+        <section class="download-section" id="download">
+            <div class="container">
+                <!-- Header -->
+                <div class="download-header reveal">
+                    <div class="download-header__icon">
+                        <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                    </div>
+                    <h1 class="download-header__title">Скачать сборку</h1>
+                    <p class="download-header__subtitle">Актуальная версия модпака MineLacs для Minecraft</p>
+                </div>
+
+                <!-- Release Card (filled by JS) -->
+                <div class="release-card reveal" id="releaseCard">
+                    <!-- Loading state -->
+                    <div class="release-loading" id="releaseLoading">
+                        <div class="spinner"></div>
+                        <p>Загрузка информации о сборке...</p>
+                    </div>
+
+                    <!-- Error state (hidden by default) -->
+                    <div class="release-error" id="releaseError" style="display:none;">
+                        <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="12" y1="8" x2="12" y2="12"/>
+                            <line x1="12" y1="16" x2="12.01" y2="16"/>
+                        </svg>
+                        <p>Не удалось загрузить данные о сборке.</p>
+                        <button class="release-error__retry" id="retryBtn">Попробовать снова</button>
+                    </div>
+
+                    <!-- Release content (hidden until loaded) -->
+                    <div class="release-content" id="releaseContent" style="display:none;">
+                        <!-- Release info -->
+                        <div class="release-info">
+                            <h2 class="release-info__name" id="releaseName"></h2>
+                            <div class="release-info__meta">
+                                <span class="release-meta__date" id="releaseDate">
+                                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                                    <span id="releaseDateText"></span>
+                                </span>
+                                <span class="release-meta__downloads" id="releaseDownloads">
+                                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                                    <span id="releaseDownloadsText"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Download buttons -->
+                        <div class="release-downloads" id="releaseDownloadBtns">
+                            <!-- Filled by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- How to install -->
+                <div class="install-guide reveal">
+                    <h2 class="install-guide__title">Как установить?</h2>
+                    <div class="install-steps">
+                        <div class="install-step">
+                            <div class="install-step__number">1</div>
+                            <div class="install-step__content">
+                                <h3 class="install-step__title">Скачай сборку</h3>
+                                <p class="install-step__desc">Выбери формат: <strong>.zip</strong> для ручной установки или <strong>.mrpack</strong> для импорта в лаунчер (Modrinth/Prism).</p>
+                            </div>
+                        </div>
+                        <div class="install-step">
+                            <div class="install-step__number">2</div>
+                            <div class="install-step__content">
+                                <h3 class="install-step__title">Установи</h3>
+                                <p class="install-step__desc"><strong>.mrpack</strong> — открой файл через Modrinth App или Prism Launcher.<br><strong>.zip</strong> — распакуй в папку <code>.minecraft</code>.</p>
+                            </div>
+                        </div>
+                        <div class="install-step">
+                            <div class="install-step__number">3</div>
+                            <div class="install-step__content">
+                                <h3 class="install-step__title">Играй!</h3>
+                                <p class="install-step__desc">Запусти Minecraft, выбери профиль MineLacs и подключись к серверу.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__top">
+                <img src="../images/logo.png" alt="MineLacs" class="footer__logo" width="48" loading="lazy">
+                <p class="footer__brand">MineLacs, 2023–<span id="currentYear"></span></p>
+            </div>
+            <p class="footer__copyright">© Все права защищены.</p>
+            <p class="footer__disclaimer">Not an official Minecraft product. We are in no way affiliated with or endorsed by Mojang Synergies AB, Microsoft Corporation or other rightsholders.</p>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Наверх">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 11 12 6 7 11"/><line x1="12" y1="6" x2="12" y2="18"/></svg>
+    </button>
+
+    <script src="../js/common.js"></script>
+    <script src="download.js"></script>
+</body>
+</html>

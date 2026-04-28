@@ -1,0 +1,289 @@
+/* ============================================
+   MineLacs — Launcher Page Styles
+   ============================================ */
+
+.launcher-section {
+    padding-top: calc(var(--header-height) + 48px);
+    padding-bottom: 72px;
+    min-height: calc(100vh - 120px);
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Hero ── */
+.launcher-hero {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.launcher-hero__logo {
+    display: block;
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    margin: 0 auto 16px;
+    border-radius: var(--radius-lg);
+    filter: drop-shadow(0 4px 24px rgba(255, 140, 0, 0.15));
+}
+
+.launcher-hero__badge {
+    display: inline-block;
+    padding: 4px 14px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-orange);
+    background: rgba(255, 140, 0, 0.1);
+    border: 1px solid rgba(255, 140, 0, 0.25);
+    border-radius: 50px;
+    margin-bottom: 16px;
+}
+
+.launcher-hero__title {
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 12px;
+}
+
+.launcher-hero__subtitle {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 520px;
+    margin: 0 auto 12px;
+    line-height: 1.6;
+}
+
+/* ── Bento grid override for launcher (2×2) ── */
+.launcher-bento {
+    max-width: 680px;
+    margin: 0 auto 40px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.launcher-bento .bento-item {
+    grid-column: span 1;
+}
+
+/* ── Download Card ── */
+.launcher-download {
+    max-width: 580px;
+    margin: 0 auto 40px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    padding: 32px;
+    text-align: center;
+    transition: border-color var(--transition-base);
+}
+
+.launcher-download:hover {
+    border-color: var(--border-hover);
+}
+
+.launcher-download__title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.launcher-download__loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 0;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.launcher-download__error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 0;
+    color: var(--text-muted);
+}
+
+.launcher-retry {
+    padding: 8px 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #111111;
+    background: var(--accent-gradient);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform var(--transition-fast);
+}
+
+.launcher-retry:hover {
+    transform: translateY(-2px);
+}
+
+.launcher-download__version {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+}
+
+.launcher-download__buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Platform download buttons */
+.platform-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #111111;
+    background: var(--accent-gradient);
+    border-radius: 50px;
+    text-decoration: none;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    box-shadow: 0 4px 20px rgba(255, 140, 0, 0.25);
+}
+
+.platform-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 28px rgba(255, 140, 0, 0.35);
+}
+
+.platform-btn--secondary {
+    color: var(--text-primary);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    box-shadow: none;
+}
+
+.platform-btn--secondary:hover {
+    border-color: var(--border-hover);
+    box-shadow: none;
+    background: var(--bg-card-hover);
+}
+
+.platform-btn__size {
+    font-size: 0.75rem;
+    font-weight: 400;
+    opacity: 0.7;
+}
+
+/* ── System Requirements ── */
+.launcher-req {
+    max-width: 580px;
+    margin: 0 auto;
+    border-top: 1px solid var(--border-color);
+    padding-top: 16px;
+}
+
+.launcher-req__title {
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.8rem;
+}
+
+.launcher-req__grid {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.launcher-req__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.launcher-req__label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+}
+
+.launcher-req__value {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* ── Spinner (reuse from download page) ── */
+.spinner {
+    width: 36px;
+    height: 36px;
+    border: 3px solid var(--border-color);
+    border-top-color: var(--accent-orange);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .launcher-section {
+        padding-top: calc(var(--header-height) + 32px);
+        padding-bottom: 48px;
+    }
+
+    .launcher-hero__title {
+        font-size: 2.25rem;
+    }
+
+    .launcher-hero__subtitle {
+        font-size: 0.95rem;
+    }
+
+    .launcher-bento {
+        gap: 10px;
+    }
+
+    .launcher-download {
+        padding: 24px 18px;
+    }
+
+    .launcher-download__buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .platform-btn {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 420px) {
+    .launcher-hero__title {
+        font-size: 1.75rem;
+    }
+
+    .launcher-bento {
+        grid-template-columns: 1fr;
+    }
+
+    .launcher-req__grid {
+        flex-direction: column;
+        align-items: center;
+    }
+}
