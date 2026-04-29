@@ -86,6 +86,28 @@
     border-color: var(--border-hover);
 }
 
+.launcher-coming-soon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0 8px;
+    text-align: center;
+}
+
+.launcher-coming-soon__text {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.launcher-coming-soon__sub {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    max-width: 340px;
+    line-height: 1.5;
+}
+
 .launcher-download__title {
     font-size: 1.3rem;
     font-weight: 700;

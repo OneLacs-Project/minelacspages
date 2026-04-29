@@ -88,24 +88,34 @@
                     <p class="launcher-hero__subtitle">Специальный лаунчер MineLacs для игры на сервере с автоматическим обновлением сборки</p>
                 </div>
 
-                <!-- Download Card (moved up) -->
+                <!-- Download Card -->
+                <!-- TO ENABLE: remove coming-soon div, restore loading/error/content divs, set DOWNLOAD_DISABLED = false in launcher.js -->
                 <div class="launcher-download reveal" id="launcherDownload">
                     <h2 class="launcher-download__title">Скачать OneLauncher</h2>
 
+                    <!-- COMING SOON (удали этот блок когда будешь включать) -->
+                    <div class="launcher-coming-soon">
+                        <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-orange); margin-bottom: 12px;">
+                            <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+                        </svg>
+                        <p class="launcher-coming-soon__text">Скоро</p>
+                        <p class="launcher-coming-soon__sub">Лаунчер находится в разработке. Следите за обновлениями в нашем Discord.</p>
+                    </div>
+
+                    <!-- ЗАГРУЗКА (раскомментируй когда включаешь)
                     <div class="launcher-download__loading" id="launcherLoading">
                         <div class="spinner"></div>
                         <p>Загрузка...</p>
                     </div>
-
                     <div class="launcher-download__error" id="launcherError" style="display:none;">
                         <p>Не удалось загрузить данные.</p>
                         <button class="launcher-retry" id="launcherRetry">Повторить</button>
                     </div>
-
                     <div class="launcher-download__content" id="launcherContent" style="display:none;">
                         <div class="launcher-download__version" id="launcherVersion"></div>
                         <div class="launcher-download__buttons" id="launcherButtons"></div>
                     </div>
+                    -->
                 </div>
 
                 <!-- Features (bento-grid from main site) -->

@@ -10,6 +10,9 @@ const API_URL = `https://api.github.com/repos/${GITHUB_REPO}/releases/latest`;
 const CACHE_KEY = 'minelacs-launcher-cache';
 const CACHE_TTL = 10 * 60 * 1000; // 10 minutes
 
+// Установи false чтобы включить скачивание
+const DOWNLOAD_DISABLED = true;
+
 document.addEventListener('DOMContentLoaded', () => {
     initPreloader();
     initThemeToggle();
@@ -17,7 +20,9 @@ document.addEventListener('DOMContentLoaded', () => {
     initBackToTop();
     initScrollReveal();
     setCurrentYear();
-    fetchLauncherRelease();
+    if (!DOWNLOAD_DISABLED) {
+        fetchLauncherRelease();
+    }
 });
 
 /* ─────────────────────────────────────────────
