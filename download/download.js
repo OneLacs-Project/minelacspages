@@ -4,7 +4,7 @@
    (Theme, Mobile Menu, Year → common.js)
    ============================================ */
 
-const GITHUB_REPO = 'notsawadawa177/minelacspages';
+const GITHUB_REPO = 'OneLacs-Project/minelacspages';
 const API_URL = `https://api.github.com/repos/${GITHUB_REPO}/releases/latest`;
 
 document.addEventListener('DOMContentLoaded', () => {
