@@ -11,7 +11,7 @@ const CACHE_KEY = 'minelacs-launcher-cache';
 const CACHE_TTL = 10 * 60 * 1000; // 10 minutes
 
 // Установи false чтобы включить скачивание
-const DOWNLOAD_DISABLED = true;
+const DOWNLOAD_DISABLED = false;
 
 document.addEventListener('DOMContentLoaded', () => {
     initPreloader();
