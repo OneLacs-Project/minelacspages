@@ -41,8 +41,8 @@
                 <img src="../images/logo.png" alt="MineLacs" width="44" height="32">
             </a>
             <nav class="header__nav" id="headerNav">
-                <a href="/" class="nav__item nav__link">Главная</a>
                 <a href="/onelauncher" class="nav__item nav__link" style="color: var(--accent-orange);">Лаунчер</a>
+                <a href="/" class="nav__item nav__link">Главная</a>
                 <a href="/download" class="nav__item nav__link">Сборка</a>
             </nav>
             <div class="header__actions">
@@ -106,46 +106,173 @@
                     </div>
                 </div>
 
-                <!-- Features (bento-grid from main site) -->
-                <div class="bento-grid launcher-bento">
-                    <div class="bento-item reveal">
-                        <div class="bento-item__icon">
-                            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
-                                <polyline points="17 6 23 6 23 12"/>
-                            </svg>
-                        </div>
-                        <h3 class="bento-item__title">Автообновление</h3>
-                        <p class="bento-item__desc">Лаунчер и сборка обновляются автоматически — всегда актуальная версия.</p>
+                                <!-- Features Section Header -->
+                <div class="launcher-marquee__header reveal">
+                    <h2 class="launcher-marquee__title">Преимущества OneLauncher</h2>
+                    <p class="launcher-marquee__subtitle">Всё необходимое для комфортной игры на сервере</p>
+                    <div class="launcher__scroll-hint">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="7 13 12 18 17 13"></polyline>
+                            <polyline points="7 6 12 11 17 6"></polyline>
+                        </svg>
                     </div>
-                    <div class="bento-item reveal">
-                        <div class="bento-item__icon">
-                            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M2 20h20"/>
-                                <path d="M5 20V8.2c0-1.12 0-1.68.218-2.108a2 2 0 0 1 .874-.874C6.52 5 7.08 5 8.2 5h7.6c1.12 0 1.68 0 2.108.218a2 2 0 0 1 .874.874C19 6.52 19 7.08 19 8.2V20"/>
-                                <path d="M9 9h6"/><path d="M9 13h6"/>
-                            </svg>
+                </div>
+
+                <!-- Features (marquee horizontal scrolling tape) -->
+                <div class="launcher-marquee reveal">
+                    <div class="launcher-marquee__track">
+                        <!-- Set 1 -->
+                        <div class="marquee-item">
+                            <div class="marquee-item__icon">
+                                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="12" cy="7" r="4"/>
+                                </svg>
+                            </div>
+                            <h3 class="marquee-item__title">Система скинов</h3>
+                            <p class="marquee-item__desc">Установите собственный скин в лаунчере, и он применится на сервере с помощью команды <code>/skin set onelauncher</code>.</p>
                         </div>
-                        <h3 class="bento-item__title">Встроенная Java</h3>
-                        <p class="bento-item__desc">Не нужно устанавливать Java отдельно — всё уже внутри.</p>
-                    </div>
-                    <div class="bento-item reveal">
-                        <div class="bento-item__icon">
-                            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-                            </svg>
+                        <div class="marquee-item">
+                            <div class="marquee-item__icon">
+                                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                                    <polyline points="17 6 23 6 23 12"/>
+                                </svg>
+                            </div>
+                            <h3 class="marquee-item__title">Автообновление</h3>
+                            <p class="marquee-item__desc">Лаунчер и сборка обновляются автоматически — всегда актуальная версия сборки.</p>
                         </div>
-                        <h3 class="bento-item__title">Быстрая установка</h3>
-                        <p class="bento-item__desc">Скачал, запустил — играешь. Без лишних настроек.</p>
-                    </div>
-                    <div class="bento-item reveal">
-                        <div class="bento-item__icon">
-                            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/>
-                            </svg>
+                        <div class="marquee-item">
+                            <div class="marquee-item__icon">
+                                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M2 20h20"/>
+                                    <path d="M5 20V8.2c0-1.12 0-1.68.218-2.108a2 2 0 0 1 .874-.874C6.52 5 7.08 5 8.2 5h7.6c1.12 0 1.68 0 2.108.218a2 2 0 0 1 .874.874C19 6.52 19 7.08 19 8.2V20"/>
+                                    <path d="M9 9h6"/><path d="M9 13h6"/>
+                                </svg>
+                            </div>
+                            <h3 class="marquee-item__title">Встроенная Java</h3>
+                            <p class="marquee-item__desc">Не нужно устанавливать Java отдельно — всё уже настроено и оптимизировано внутри.</p>
                         </div>
-                        <h3 class="bento-item__title">Статистика</h3>
-                        <p class="bento-item__desc">Отслеживай своё время в игре и другие показатели.</p>
+                        <div class="marquee-item">
+                            <div class="marquee-item__icon">
+                                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                                </svg>
+                            </div>
+                            <h3 class="marquee-item__title">Быстрая установка</h3>
+                            <p class="marquee-item__desc">Скачал лаунчер, запустил и сразу играешь. Без лишней возни с настройками.</p>
+                        </div>
+                        <div class="marquee-item">
+                            <div class="marquee-item__icon">
+                                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/>
+                                </svg>
+                            </div>
+                            <h3 class="marquee-item__title">Статистика</h3>
+                            <p class="marquee-item__desc">Отслеживай своё время в игре и другие полезные статистические показатели.</p>
+                        </div>
+                        
+                        <!-- Set 2 -->
+                        <div class="marquee-item">
+                            <div class="marquee-item__icon">
+                                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="12" cy="7" r="4"/>
+                                </svg>
+                            </div>
+                            <h3 class="marquee-item__title">Система скинов</h3>
+                            <p class="marquee-item__desc">Установите собственный скин в лаунчере, и он применится на сервере с помощью команды <code>/skin set onelauncher</code>.</p>
+                        </div>
+                        <div class="marquee-item">
+                            <div class="marquee-item__icon">
+                                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                                    <polyline points="17 6 23 6 23 12"/>
+                                </svg>
+                            </div>
+                            <h3 class="marquee-item__title">Автообновление</h3>
+                            <p class="marquee-item__desc">Лаунчер и сборка обновляются автоматически — всегда актуальная версия сборки.</p>
+                        </div>
+                        <div class="marquee-item">
+                            <div class="marquee-item__icon">
+                                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M2 20h20"/>
+                                    <path d="M5 20V8.2c0-1.12 0-1.68.218-2.108a2 2 0 0 1 .874-.874C6.52 5 7.08 5 8.2 5h7.6c1.12 0 1.68 0 2.108.218a2 2 0 0 1 .874.874C19 6.52 19 7.08 19 8.2V20"/>
+                                    <path d="M9 9h6"/><path d="M9 13h6"/>
+                                </svg>
+                            </div>
+                            <h3 class="marquee-item__title">Встроенная Java</h3>
+                            <p class="marquee-item__desc">Не нужно устанавливать Java отдельно — всё уже настроено и оптимизировано внутри.</p>
+                        </div>
+                        <div class="marquee-item">
+                            <div class="marquee-item__icon">
+                                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                                </svg>
+                            </div>
+                            <h3 class="marquee-item__title">Быстрая установка</h3>
+                            <p class="marquee-item__desc">Скачал лаунчер, запустил и сразу играешь. Без лишней возни с настройками.</p>
+                        </div>
+                        <div class="marquee-item">
+                            <div class="marquee-item__icon">
+                                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/>
+                                </svg>
+                            </div>
+                            <h3 class="marquee-item__title">Статистика</h3>
+                            <p class="marquee-item__desc">Отслеживай своё время в игре и другие полезные статистические показатели.</p>
+                        </div>
+
+                        <!-- Set 3 -->
+                        <div class="marquee-item">
+                            <div class="marquee-item__icon">
+                                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="12" cy="7" r="4"/>
+                                </svg>
+                            </div>
+                            <h3 class="marquee-item__title">Система скинов</h3>
+                            <p class="marquee-item__desc">Установите собственный скин в лаунчере, и он применится на сервере с помощью команды <code>/skin set onelauncher</code>.</p>
+                        </div>
+                        <div class="marquee-item">
+                            <div class="marquee-item__icon">
+                                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                                    <polyline points="17 6 23 6 23 12"/>
+                                </svg>
+                            </div>
+                            <h3 class="marquee-item__title">Автообновление</h3>
+                            <p class="marquee-item__desc">Лаунчер и сборка обновляются автоматически — всегда актуальная версия сборки.</p>
+                        </div>
+                        <div class="marquee-item">
+                            <div class="marquee-item__icon">
+                                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M2 20h20"/>
+                                    <path d="M5 20V8.2c0-1.12 0-1.68.218-2.108a2 2 0 0 1 .874-.874C6.52 5 7.08 5 8.2 5h7.6c1.12 0 1.68 0 2.108.218a2 2 0 0 1 .874.874C19 6.52 19 7.08 19 8.2V20"/>
+                                    <path d="M9 9h6"/><path d="M9 13h6"/>
+                                </svg>
+                            </div>
+                            <h3 class="marquee-item__title">Встроенная Java</h3>
+                            <p class="marquee-item__desc">Не нужно устанавливать Java отдельно — всё уже настроено и оптимизировано внутри.</p>
+                        </div>
+                        <div class="marquee-item">
+                            <div class="marquee-item__icon">
+                                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                                </svg>
+                            </div>
+                            <h3 class="marquee-item__title">Быстрая установка</h3>
+                            <p class="marquee-item__desc">Скачал лаунчер, запустил и сразу играешь. Без лишней возни с настройками.</p>
+                        </div>
+                        <div class="marquee-item">
+                            <div class="marquee-item__icon">
+                                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/>
+                                </svg>
+                            </div>
+                            <h3 class="marquee-item__title">Статистика</h3>
+                            <p class="marquee-item__desc">Отслеживай своё время в игре и другие полезные статистические показатели.</p>
+                        </div>
                     </div>
                 </div>
 
