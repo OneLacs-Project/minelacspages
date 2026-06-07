@@ -1,1 +1,218 @@
-function initHeaderScroll(){const e=document.getElementById("header"),t=document.getElementById("hero");if(!e||!t)return;new IntersectionObserver(t=>{t.forEach(t=>{t.isIntersecting?e.classList.remove("header--scrolled"):e.classList.add("header--scrolled")})},{threshold:.15}).observe(t)}function initHeroParallax(){const e=document.querySelector(".hero__logo"),t=document.querySelector(".hero__slogan"),n=document.querySelector(".hero__buttons"),o=document.querySelector(".hero__glow"),r=document.getElementById("hero");if(!e||!r)return;let i=!1;function a(){const a=window.scrollY,c=r.offsetHeight;if(a<=c){const r=a/c;e.style.transform=`translateY(${.12*a}px) scale(${1-.1*r})`,e.style.opacity=1-.9*r,t&&(t.style.transform=`translateY(${.25*a}px)`,t.style.opacity=1-.95*r),n&&(n.style.transform=`translateY(${.38*a}px)`,n.style.opacity=1-r),o&&(o.style.transform=`translate(-50%, -50%) scale(${1+.4*r})`,o.style.opacity=1-.7*r)}i=!1}window.addEventListener("scroll",()=>{i||(requestAnimationFrame(a),i=!0)},{passive:!0})}function initHeroScrollHint(){const e=document.getElementById("heroScrollHint");e&&e.addEventListener("click",()=>{const e=document.getElementById("why-us");if(e){const t=-70,n=e.getBoundingClientRect().top+window.pageYOffset+t;window.scrollTo({top:n,behavior:"smooth"})}})}function initFAQ(){const e=document.querySelectorAll(".faq-item");e.forEach(t=>{const n=t.querySelector(".faq-question");n.addEventListener("click",()=>{const o=t.classList.contains("faq-item--open");e.forEach(e=>{e!==t&&(e.classList.remove("faq-item--open"),e.querySelector(".faq-question").setAttribute("aria-expanded","false"))}),t.classList.toggle("faq-item--open"),n.setAttribute("aria-expanded",!o)})})}function initSmoothScroll(){document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",t=>{const n=e.getAttribute("href");if("#"===n)return;const o=document.querySelector(n);o&&(t.preventDefault(),o.scrollIntoView({behavior:"smooth"}))})})}document.addEventListener("DOMContentLoaded",()=>{initPreloader(),initThemeToggle(),initHeaderScroll(),initHeroParallax(),initHeroScrollHint(),initMobileMenu(),initScrollReveal(),initFAQ(),initSmoothScroll(),initBackToTop(),setCurrentYear(),SkinManager.init()});const SkinManager=(()=>{let e=0;const t=[];function n(e){const t=e.closest(".team-tier");return t?.classList.contains("team-tier--mod")?{width:150,height:220}:t?.classList.contains("team-tier--beta")?{width:120,height:180}:{width:180,height:260}}function o(e,t,n){const o=e.querySelector(".team-card__canvas");o&&(o.style.display="none");const r=document.createElement("div");r.className="team-card__fallback",r.style.cssText=`\n            width: ${t}px;\n            height: ${n}px;\n            display: flex;\n            align-items: center;\n            justify-content: center;\n            font-size: 3rem;\n            color: var(--text-muted);\n            background: var(--bg-secondary);\n            border-radius: var(--radius-sm);\n        `,r.textContent="👤";const i=e.querySelector(".team-card__canvas-wrapper");i&&i.appendChild(r)}function r(){t.forEach(e=>{try{e.dispose()}catch(e){}}),t.length=0}return window.addEventListener("beforeunload",r),document.addEventListener("visibilitychange",()=>{const e="hidden"===document.visibilityState;t.forEach(t=>{try{t.renderPaused=e}catch(e){}})}),{init:function r(){if("undefined"==typeof skinview3d)return e++,void(e<20?setTimeout(r,500):(console.warn("skinview3d library failed to load after retries."),document.querySelectorAll(".team-card[data-nickname]").forEach(e=>{const{width:t,height:r}=n(e);o(e,t,r)})));document.querySelectorAll(".team-card[data-nickname]").forEach(e=>{const r=e.dataset.nickname,i=e.querySelector(".team-card__canvas");if(!i)return;const{width:a,height:c}=n(e),s=[`https://minotar.net/skin/${r}`,`https://mc-heads.net/skin/${r}`];try{const n=new skinview3d.SkinViewer({canvas:i,width:a,height:c});n.renderer.setClearColor(0,0),n.fov=30,n.zoom=.92,n.autoRotate=!0,n.autoRotateSpeed=.5,n.controls.enableRotate=!0,n.controls.enableZoom=!1,n.controls.enablePan=!1,n.animation=new skinview3d.WalkingAnimation,n.animation.speed=.3,t.push(n),e._viewer=n,async function(e,t){for(let n=0;n<t.length;n++)try{return void await e.loadSkin(t[n])}catch(e){console.warn(`Skin source ${n+1}/${t.length} failed, trying next...`)}throw new Error("All skin sources exhausted")}(n,s).catch(()=>{o(e,a,c)})}catch(t){console.warn(`Failed to init viewer for ${r}:`,t),o(e,a,c)}})},dispose:r}})();
+function initHeaderScroll() {
+    const header = document.getElementById('header');
+    const hero   = document.getElementById('hero');
+    if (!header || !hero) return;
+
+    new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                header.classList.remove('header--scrolled');
+            } else {
+                header.classList.add('header--scrolled');
+            }
+        });
+    }, { threshold: 0.15 }).observe(hero);
+}
+
+function initHeroParallax() {
+    const logo    = document.querySelector('.hero__logo');
+    const slogan  = document.querySelector('.hero__slogan');
+    const buttons = document.querySelector('.hero__buttons');
+    const glow    = document.querySelector('.hero__glow');
+    const hero    = document.getElementById('hero');
+    if (!logo || !hero) return;
+
+    let ticking = false;
+
+    function update() {
+        const scrollY     = window.scrollY;
+        const heroHeight  = hero.offsetHeight;
+        if (scrollY <= heroHeight) {
+            const ratio = scrollY / heroHeight;
+            logo.style.transform = `translateY(${0.12 * scrollY}px) scale(${1 - 0.1 * ratio})`;
+            logo.style.opacity   = 1 - 0.9 * ratio;
+            if (slogan) {
+                slogan.style.transform = `translateY(${0.25 * scrollY}px)`;
+                slogan.style.opacity   = 1 - 0.95 * ratio;
+            }
+            if (buttons) {
+                buttons.style.transform = `translateY(${0.38 * scrollY}px)`;
+                buttons.style.opacity   = 1 - ratio;
+            }
+            if (glow) {
+                glow.style.transform = `translate(-50%, -50%) scale(${1 + 0.4 * ratio})`;
+                glow.style.opacity   = 1 - 0.7 * ratio;
+            }
+        }
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            requestAnimationFrame(update);
+            ticking = true;
+        }
+    }, { passive: true });
+}
+
+function initHeroScrollHint() {
+    const btn = document.getElementById('heroScrollHint');
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+        const target = document.getElementById('why-us');
+        if (!target) return;
+        const offset = target.getBoundingClientRect().top + window.pageYOffset - 70;
+        window.scrollTo({ top: offset, behavior: 'smooth' });
+    });
+}
+
+function initFAQ() {
+    const items = document.querySelectorAll('.faq-item');
+    items.forEach(item => {
+        const btn = item.querySelector('.faq-question');
+        btn.addEventListener('click', () => {
+            const isOpen = item.classList.contains('faq-item--open');
+            items.forEach(other => {
+                if (other !== item) {
+                    other.classList.remove('faq-item--open');
+                    other.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                }
+            });
+            item.classList.toggle('faq-item--open');
+            btn.setAttribute('aria-expanded', !isOpen);
+        });
+    });
+}
+
+function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener('click', e => {
+            const hash = link.getAttribute('href');
+            if (hash === '#') return;
+            const target = document.querySelector(hash);
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+}
+
+const SkinManager = (() => {
+    let retries = 0;
+    const viewers = [];
+
+    function sizeFor(card) {
+        const tier = card.closest('.team-tier');
+        if (tier?.classList.contains('team-tier--mod'))  return { width: 150, height: 220 };
+        if (tier?.classList.contains('team-tier--beta')) return { width: 120, height: 180 };
+        return { width: 180, height: 260 };
+    }
+
+    function showFallback(card, width, height) {
+        const canvas = card.querySelector('.team-card__canvas');
+        if (canvas) canvas.style.display = 'none';
+        const fallback = document.createElement('div');
+        fallback.className = 'team-card__fallback';
+        fallback.style.cssText = `
+            width: ${width}px;
+            height: ${height}px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--text-muted);
+            background: var(--bg-secondary);
+            border-radius: var(--radius-sm);
+        `;
+        fallback.textContent = '👤';
+        const wrapper = card.querySelector('.team-card__canvas-wrapper');
+        if (wrapper) wrapper.appendChild(fallback);
+    }
+
+    function disposeAll() {
+        viewers.forEach(v => { try { v.dispose(); } catch (_) {} });
+        viewers.length = 0;
+    }
+
+    window.addEventListener('beforeunload', disposeAll);
+    document.addEventListener('visibilitychange', () => {
+        const paused = document.visibilityState === 'hidden';
+        viewers.forEach(v => { try { v.renderPaused = paused; } catch (_) {} });
+    });
+
+    function init() {
+        if (typeof skinview3d === 'undefined') {
+            retries++;
+            if (retries < 20) {
+                setTimeout(init, 500);
+            } else {
+                console.warn('skinview3d library failed to load after retries.');
+                document.querySelectorAll('.team-card[data-nickname]').forEach(card => {
+                    const { width, height } = sizeFor(card);
+                    showFallback(card, width, height);
+                });
+            }
+            return;
+        }
+
+        document.querySelectorAll('.team-card[data-nickname]').forEach(card => {
+            const nickname = card.dataset.nickname;
+            const canvas   = card.querySelector('.team-card__canvas');
+            if (!canvas) return;
+
+            const { width, height } = sizeFor(card);
+            const sources = [
+                `https://minotar.net/skin/${nickname}`,
+                `https://mc-heads.net/skin/${nickname}`,
+            ];
+
+            try {
+                const viewer = new skinview3d.SkinViewer({ canvas, width, height });
+                viewer.renderer.setClearColor(0, 0);
+                viewer.fov             = 30;
+                viewer.zoom            = 0.92;
+                viewer.autoRotate      = true;
+                viewer.autoRotateSpeed = 0.5;
+                viewer.controls.enableRotate = true;
+                viewer.controls.enableZoom   = false;
+                viewer.controls.enablePan    = false;
+                viewer.animation       = new skinview3d.WalkingAnimation();
+                viewer.animation.speed = 0.3;
+                viewers.push(viewer);
+                card._viewer = viewer;
+
+                (async function loadSkin(v, srcs) {
+                    for (let i = 0; i < srcs.length; i++) {
+                        try { return await v.loadSkin(srcs[i]); } catch (_) {
+                            console.warn(`Skin source ${i + 1}/${srcs.length} failed, trying next...`);
+                        }
+                    }
+                    throw new Error('All skin sources exhausted');
+                })(viewer, sources).catch(() => showFallback(card, width, height));
+
+            } catch (err) {
+                console.warn(`Failed to init viewer for ${nickname}:`, err);
+                showFallback(card, width, height);
+            }
+        });
+    }
+
+    return { init, dispose: disposeAll };
+})();
+
+document.addEventListener('DOMContentLoaded', () => {
+    initPreloader();
+    initThemeToggle();
+    initHeaderScroll();
+    initHeroParallax();
+    initHeroScrollHint();
+    initMobileMenu();
+    initScrollReveal();
+    initFAQ();
+    initSmoothScroll();
+    initBackToTop();
+    setCurrentYear();
+    initMarquee();
+    SkinManager.init();
+});
