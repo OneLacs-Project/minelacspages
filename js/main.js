@@ -174,9 +174,10 @@ const SkinManager = (() => {
                 viewer.zoom            = 0.92;
                 viewer.autoRotate      = true;
                 viewer.autoRotateSpeed = 0.5;
-                viewer.controls.enableRotate = true;
-                viewer.controls.enableZoom   = false;
-                viewer.controls.enablePan    = false;
+                const control = skinview3d.createOrbitControls(viewer);
+                control.enableRotate = true;
+                control.enableZoom   = false;
+                control.enablePan    = false;
                 viewer.animation       = new skinview3d.WalkingAnimation();
                 viewer.animation.speed = 0.3;
                 viewers.push(viewer);
